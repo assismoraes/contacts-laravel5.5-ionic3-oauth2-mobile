@@ -1,3 +1,4 @@
+import { ContactDetailsPage } from './../pages/contact-details/contact-details';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -11,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+
 //                                                                                                                                                                                                                                                                                    import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -18,11 +21,13 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    NewContactPage
+    NewContactPage,
+    ContactDetailsPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgHttpLoaderModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -30,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    NewContactPage
+    NewContactPage,
+    ContactDetailsPage
   ],
   providers: [
     StatusBar,
