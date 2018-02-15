@@ -9,14 +9,15 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>New Contact</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-  <form (ngSubmit)="save(contact)">
+  <form (ngSubmit)="save()">
+    <ion-input type="number" hidden [(ngModel)]="contact.id" name="id" ></ion-input>
     <ion-item>
       <ion-label>Name</ion-label>
       <ion-input type="text" [(ngModel)]="contact.name" name="name" ></ion-input>

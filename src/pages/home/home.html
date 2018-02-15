@@ -8,10 +8,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-list inset>
-    <ion-item *ngFor="let contact of contacts">
-      <h2>{{contact.name}}</h2>
-      <p>{{contact.email}}</p>
-    </ion-item>
+  <ion-searchbar [(ngModel)]="strSearch" [showCancelButton]="shouldShowCancel" (ionInput)="filter(strSearch)" (ionCancel)="onCancel($event)"
+    placeholder="Looking for contacts? Type here!" debounce=500>
+  </ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let contact of contacts; let itemId = index" #item>
+      <ion-item (click)="detail(contact)">
+        <h2 style="font-size:90%; text-align:right;">{{contact.name}}</h2>
+        <p style="font-size:80%; text-align:right;">{{contact.email}}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="delete(itemId, contact)">Delete</button>
+        <button ion-button color="default" (click)="edit(contact)">Editar</button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
+
+  <ion-card-content *ngIf="emptyContactsArray()" >
+    <h6 style="font-size:90%; text-align:center;">No contact found </h6>
+    <h1 style="text-align:center;"> <ion-icon name="close-circle" ></ion-icon> </h1>
+  </ion-card-content>
 </ion-content>

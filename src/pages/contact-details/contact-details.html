@@ -1,0 +1,24 @@
+<!--
+  Generated template for the ContactDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ contact.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+      <ion-item style="font-size:80%;"> ID: <h6 style="font-size:95%;" item-right>{{ contact.id }}</h6> </ion-item>
+      <ion-item style="font-size:80%;"> Name: <h6 style="font-size:95%;" item-right>{{ contact.name }}</h6> </ion-item>
+      <ion-item style="font-size:80%;"> Email: <h6 style="font-size:95%;" item-right>{{ contact.email }}</h6> </ion-item>
+      <ion-item style="font-size:80%;"> Phone: <h6 style="font-size:95%;" item-right>{{ contact.phone }}</h6> </ion-item>
+  </ion-list>
+  <button  ion-button small block (click)="dismiss()" >Ok</button>
+</ion-content>
