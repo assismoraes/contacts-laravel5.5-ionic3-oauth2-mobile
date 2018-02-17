@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf="user" >
+    <ion-item style="font-size:80%;"> Name:
+      <h6 style="font-size:95%;" item-right>{{ user.name }}</h6>
+    </ion-item>
+    <ion-item style="font-size:80%;"> Email:
+      <h6 style="font-size:95%;" item-right>{{ user.email }}</h6>
+    </ion-item>
+    <ion-item style="font-size:80%;"> Created at:
+      <h6 style="font-size:95%;" item-right>{{ user.created_at }}</h6>
+    </ion-item>
+  </ion-list>
+  <button small block color="danger" ion-button icon-end (click)="resetMyInfo()">
+    Reset my info
+    <ion-icon name="remove-circle"></ion-icon>
+  </button>
+</ion-content>
