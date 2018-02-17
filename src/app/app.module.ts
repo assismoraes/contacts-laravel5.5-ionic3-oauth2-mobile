@@ -1,3 +1,5 @@
+import { MyInfoPage } from './../pages/my-info/my-info';
+import { LoginPage } from './../pages/login/login';
 import { ContactDetailsPage } from './../pages/contact-details/contact-details';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -13,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { HttpClientModule } from '@angular/common/http';
 import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+import { IonicStorageModule } from '@ionic/storage';
 
 //                                                                                                                                                                                                                                                                                    import { HttpModule } from '@angular/http';
 
@@ -22,12 +25,15 @@ import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
     HomePage,
     ListPage,
     NewContactPage,
-    ContactDetailsPage
+    ContactDetailsPage,
+    LoginPage,
+    MyInfoPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgHttpLoaderModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -36,13 +42,15 @@ import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
     HomePage,
     ListPage,
     NewContactPage,
-    ContactDetailsPage
+    ContactDetailsPage,
+    LoginPage,
+    MyInfoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider
+    RestProvider,
   ]
 })
 export class AppModule {}
