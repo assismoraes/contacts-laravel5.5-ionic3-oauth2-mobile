@@ -1,3 +1,4 @@
+import { ErrorsHandler } from './../../utils/errors';
 import { Storage } from '@ionic/storage';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { User } from './../../models/user';
@@ -38,9 +39,8 @@ export class LoginPage {
         this.loginMessage('Login successfully!');
       })
       .catch(err => {
-        this.loginMessage('Incorrect login or password. Try again.');
+        this.loginMessage(ErrorsHandler.handler(err));          
       });
-
     ;
   }
 
@@ -51,5 +51,6 @@ export class LoginPage {
       duration: 2500
     }).present();
   }
+
 
 }
